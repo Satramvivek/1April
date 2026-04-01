@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose Your Mood</title>
+
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .happy { background-color: yellow; color: black; }
+        .sad { background-color: blue; }
+        .angry { background-color: red; }
+        .relaxed { background-color: green; }
+
+        #message {
+            margin-top: 30px;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Choose your mood</h1>
+
+    <button class="happy" onclick="setMood('happy')">Happy</button>
+    <button class="sad" onclick="setMood('sad')">Sad</button>
+    <button class="angry" onclick="setMood('angry')">Angry</button>
+    <button class="relaxed" onclick="setMood('relaxed')">Relaxed</button>
+
+    <div id="message"></div>
+
+    <script>
+        function setMood(mood) {
+            let body = document.body;
+            let message = document.getElementById("message");
+
+            
+            message.innerHTML = "";
+
+            let text = document.createElement("p");
+
+            if (mood === "happy") {
+                body.style.backgroundColor = "yellow";
+                text.textContent = "Yay! Keep smiling 😊";
+            } 
+            else if (mood === "sad") {
+                body.style.backgroundColor = "blue";
+                text.textContent = "It's okay to feel sad sometimes.. come back soon 😢";
+            } 
+            else if (mood === "angry") {
+                body.style.backgroundColor = "red";
+                text.textContent = "Calm down, don't be angry 😡";
+            } 
+            else if (mood === "relaxed") {
+                body.style.backgroundColor = "green";
+                text.textContent = "Stay calm and relaxed 🧘‍♀️";
+            }
+
+            
+            message.appendChild(text);
+        }
+    </script>
+
+</body>
+</html>
