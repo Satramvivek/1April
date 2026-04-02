@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+        li {
+            margin: 10px;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>To-Do List</h2>
+
+    <!-- Input field -->
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <!-- Task list -->
+    <ul id="taskList"></ul>
+
+<script>
+    function addTask() {
+        let input = document.getElementById("taskInput");
+        let task = input.value;
+
+        if (task === "") {
+            alert("Enter a task!");
+            return;
+        }
+
+        //  i am Creation of the  list item
+        let li = document.createElement("li");
+        li.textContent = task;
+
+        //  i am  using  deleting button is used to remove the tasks
+        let deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+
+        // i am adding the  functionality
+        deleteBtn.onclick = function () {
+            li.remove();
+        };
+
+        //  i am using Append button to list item
+        li.appendChild(deleteBtn);
+
+        // Adding  to the  list
+        document.getElementById("taskList").appendChild(li);
+
+        //  to make input Clear input
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
