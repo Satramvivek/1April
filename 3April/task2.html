@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Slider</title>
+
+<style>
+body {
+  background: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+.slider-container {
+  background: #eee;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.slider-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 15px 0;
+  transition: 0.5s;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 8px 15px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
+}
+</style>
+
+</head>
+<body>
+
+<div class="slider-container">
+  <h2>Slider</h2>
+
+  <img id="sliderImage" src="img1.jpg">
+
+  <div class="controls">
+    <button onclick="prevImage()">Prev</button>
+    <p id="imageNumber">Image 1 of 4</p>
+    <button onclick="nextImage()">Next</button>
+  </div>
+</div>
+
+<script>
+const images = [
+  "img 2.jpg",
+  "img1.jpg",
+  "task2 ap2.jpeg",
+  "17.jpeg"
+];
+
+let index = 0;
+
+const sliderImage = document.getElementById("sliderImage");
+const imageNumber = document.getElementById("imageNumber");
+
+function updateSlider() {
+  sliderImage.src = images[index];
+  imageNumber.innerText = "Image " + (index + 1) + " of 4";
+}
+
+function nextImage() {
+  index++;
+  if (index >= images.length) {
+    index = 0;
+  }
+  updateSlider();
+}
+
+function prevImage() {
+  index--;
+  if (index < 0) {
+    index = images.length - 1;
+  }
+  updateSlider();
+}
+
+
+</script>
+
+</body>
+</html>
